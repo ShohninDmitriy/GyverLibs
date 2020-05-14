@@ -18,6 +18,7 @@
 * [GyverWDT](#GyverWDT) - расширенный контроль за watchdog
 
 ### Алгоритмы
+* [PWMrelay](#PWMrelay) - сверхнизкочастотный ШИМ для релюшек
 * [GyverFilters](#GyverFilters) - набор фильтров значений
 * [GyverTimer](#GyverTimer) - простой таймер для организации кода
 * [GyverPID](#GyverPID) - библиотека ПИД регулятора
@@ -40,6 +41,32 @@
 * [microDS18B20](#microDS18B20) - микро библиотека для работы с датчиком температуры ds18b20
 * [GyverUART](#GyverUART) - облегчённый и ускоренный Serial
 * [minimLibs](#minimLibs) - набор классов для работы с железками
+
+---
+
+<a id="PWMrelay"></a>
+### PWMrelay v1.0 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/PWMrelay/PWMrelay.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/pwmrelay/)
+Библиотека для генерации сверхнизкочастотного ШИМа для релюшек
+- Встроенный таймер на миллис
+- Установка частоты, скважности и уровня реле
+
+#### Методы и функции библиотеки
+<details>
+<summary>РАЗВЕРНУТЬ</summary>
+<p>
+Смотри примеры в папке examples!
+
+```C
+PWMrelay(byte pin, bool dir, int period);   // пин, уровень реле HIGH/LOW, период
+void tick();                                // тик, вызывать как можно чаще, сам управляет реле
+void setPWM(byte duty);                     // установить величину ШИМ, 0-255. При значении 0 и 255 тик неактивен!
+byte getPWM();                              // возвращает величину ШИМ
+void setPeriod(int period);                 // установить период ШИМ в миллисек. (по умолч. 1000мс == 1с)
+int getPeriod();                            // получить период
+void setLevel(bool level);                  // установить установить уровень реле (HIGH/LOW)
+```
+</p>
+</details>
 
 ---
 
@@ -267,7 +294,7 @@ minimLibs это набор классов, являющихся облегчё�
 ---
 
 <a id="microBME280"></a>
-### microBME280 v1.2 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microWire/microBME280.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
+### microBME280 v1.3 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microWire/microBME280.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
 Лёгкая библиотека для работы с датчиком BME280
 - Легче аналогов =)
 - Разработано by Egor 'Nich1con' Zaharov
@@ -327,7 +354,7 @@ uint8_t receive_nack(void);
 ---
 
 <a id="microDS3231"></a>
-### microDS3231 v1.2 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microDS3231/microDS3231.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
+### microDS3231 v1.3 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microDS3231/microDS3231.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
 Ультра лёгкая библиотека для работы с RTC DS3231
 - Для работы нужна библиотека **microWire.h**
 - Разработано by Egor 'Nich1con' Zaharov
@@ -356,7 +383,7 @@ uint8_t getMonth(void);         // получить месяц
 ---
 
 <a id="microDS18B20"></a>
-### microDS18B20 v2.0 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microDS18B20/microDS18B20.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
+### microDS18B20 v2.2 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microDS18B20/microDS18B20.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
 Ультра лёгкая библиотека для работы с датчиком температуры Dallas DS18B20
 - Разработано by Egor 'Nich1con' Zaharov
 #### Методы и функции библиотеки
@@ -463,7 +490,7 @@ void resetStates();     // сбрасывает все is-флаги и счёт
 ---
 
 <a id="GyverEncoder "></a>
-### GyverEncoder v4.3 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverEncoder/GyverEncoder.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/encoder/)
+### GyverEncoder v4.5 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverEncoder/GyverEncoder.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/encoder/)
 Библиотека для отработки энкодера с Arduino. Возможности:
 - Отработка поворота с антидребезгом
 - Отработка нажатия кнопки с антидребезгом
@@ -553,7 +580,7 @@ parseFloat      | 1070    | 246       | 824
 ---
 
 <a id="GyverTimers"></a>
-### GyverTimers v1.1 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverTimers/GyverTimers.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/GyverTimers/)
+### GyverTimers v1.3 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverTimers/GyverTimers.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/GyverTimers/)
 Настройка и контроль прерываний по аппаратным таймерам:
 - Поддерживаются все три таймера на ATmega328 и шесть таймеров на ATmega2560;		
 - Настройка периода (мкс) и частоты (Гц) прерываний:
@@ -954,7 +981,7 @@ void setAutoDetach(boolean set);            // вкл/выкл автомати�
 ---
 
 <a id="GyverFilters"></a>
-### GyverFilters v1.7 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverFilters/GyverFilters.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverfilters/)
+### GyverFilters v1.8 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverFilters/GyverFilters.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverfilters/)
 Библиотека с некоторыми удобными фильтрами для Arduino:
 - GFilterRA - компактная альтернатива фильтра экспоненциальное бегущее среднее (Running Average)			
 - GMedian3 - быстрый медианный фильтр 3-го порядка (отсекает выбросы)

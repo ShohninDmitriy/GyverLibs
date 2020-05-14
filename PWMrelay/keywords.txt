@@ -1,22 +1,22 @@
 #######################################
-# Syntax Coloring Map For microDS18B20
+# Syntax Coloring Map For PWMrelay
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-MicroDS18B20	KEYWORD1
-microDS18B20	KEYWORD1
+
+PWMrelay	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-setResolution	KEYWORD2
-readAddress	KEYWORD2
-setAddress	KEYWORD2
-setPin	KEYWORD2
-requestTemp	KEYWORD2
-getTemp	KEYWORD2
+tick	KEYWORD2
+setPWM	KEYWORD2
+getPWM	KEYWORD2
+setPeriod	KEYWORD2
+getPeriod	KEYWORD2
+setLevel	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
