@@ -73,7 +73,7 @@ minimLibs это мини-библиотеки, которые не входят
 
 
 <a id="Gyver433"></a>
-![Logo](/logos/busLogo.png)
+
 ### Gyver433 v1.0 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/Gyver433/Gyver433.zip)
 Суперлёгкая библиотека для радиомодулей 433 МГц
 - Не использует прерывания и таймеры (кроме нулевого, читает micros())
@@ -84,7 +84,7 @@ minimLibs это мини-библиотеки, которые не входят
 
 <a id="GyverBus"></a>
 ![Logo](/logos/busLogo.png)
-### GyverBus v2.2 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverBus/GyverBus.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverbus/)
+### GyverBus v2.3 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverBus/GyverBus.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverbus/)
 GyverBus - библиотека для общения по протоколу GBUS
 - Очень простой, надёжный, устойчивый к помехам и задержкам, но медленный интерфейс связи на базе UART
 - Двухсторонняя связь по одному проводу
@@ -351,7 +351,7 @@ PURPLE
 
 <a id="GyverPower"></a>
 ![Logo](/logos/power.png)
-### GyverPower v1.4 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverPower/GyverPower.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverpower/)
+### GyverPower v1.5 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverPower/GyverPower.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverpower/)
 GyverPower - библиотека для расширенного управления энергопотреблением микроконтроллера
 - Управление системным клоком
 - Включение/выключение периферии:
@@ -521,7 +521,7 @@ uint8_t receive_nack(void);
 
 <a id="microDS3231"></a>
 ![Logo](/logos/ds3231logo.png)
-### microDS3231 v1.4 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microDS3231/microDS3231.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
+### microDS3231 v2.0 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/microDS3231/microDS3231.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/microlibs/)
 Ультра лёгкая библиотека для работы с RTC DS3231
 - Для работы нужна библиотека **microWire.h**
 - Разработано by Egor 'Nich1con' Zaharov
@@ -755,7 +755,7 @@ parseFloat      | 1108    | 366       | 742
 
 <a id="GyverTimers"></a>
 ![Logo](/logos/timerslogo.png)
-### GyverTimers v1.8 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverTimers/GyverTimers.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/GyverTimers/)
+### GyverTimers v1.9 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverTimers/GyverTimers.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/GyverTimers/)
 Настройка и контроль прерываний по аппаратным таймерам:
 - Поддерживаются все три таймера на ATmega328 и шесть таймеров на ATmega2560;		
 - Настройка периода (мкс) и частоты (Гц) прерываний:
@@ -1449,7 +1449,7 @@ int16_t _duty = 0;
 
 <a id="GyverStepper"></a>
 ![Logo](/logos/stepperLogo.png)
-### GyverStepper v1.5 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverStepper/GyverStepper.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverstepper/)
+### GyverStepper v1.7 [СКАЧАТЬ](https://github.com/AlexGyver/GyverLibs/releases/download/GyverStepper/GyverStepper.zip), [ДОКУМЕНТАЦИЯ](https://alexgyver.ru/gyverstepper/)
 GyverStepper - производительная библиотека для управления шаговыми моторами
 - Поддержка 4х пинового (шаг и полушаг) и STEP-DIR драйверов
 - Автоматическое отключение питания при достижении цели
@@ -1518,7 +1518,7 @@ float getTargetDeg();
 
 // Установка максимальной скорости (по модулю) в шагах/секунду и градусах/секунду (для режима FOLLOW_POS)
 // по умолч. 300
-void setMaxSpeed(int speed);
+void setMaxSpeed(float speed);
 void setMaxSpeedDeg(float speed);
 
 // Установка ускорения в шагах и градусах в секунду (для режима FOLLOW_POS).
@@ -1543,11 +1543,11 @@ void brake();
 void reset();
 
 // Установка целевой скорости в шагах/секунду и градусах/секунду (для режима KEEP_SPEED)
-void setSpeed(int speed);
+void setSpeed(float speed);
 void setSpeedDeg(float speed);
 
 // Получение целевой скорости в шагах/секунду и градусах/секунду (для режима KEEP_SPEED)
-int getSpeed();
+float getSpeed();
 float getSpeedDeg();
 
 // Включить мотор (пин EN)
